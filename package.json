@@ -1,0 +1,16 @@
+{
+  "name": "sfs-clone",
+  "productName": "Space Flight",
+  "version": "0.10.0",
+  "type": "module",
+  "private": true,
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node tests/flight.mjs && node tests/server.mjs && node tests/smoke.mjs",
+    "desktop": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": { "electron": "^33.0.0", "electron-builder": "^25.0.0" },
+  "build": { "appId": "local.spaceflight", "files": ["index.html", "style.css", "src/**", "assets/**", "electron/**"], "win": { "target": "portable" } }
+}
